@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-python-app
+  labels:
+    app: sample-python-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-python-app
+  template:
+    metadata:
+      labels:
+        app: sample-python-app
+    spec:
+      containers:
+      - name: python-app
+        image: shashank20062000/python-web:v1
+        volumeMounts:
+        - name: config-vol
+          mountPath: /etc/config
+      volumes:
+      - name: config-vol
+        configMap:
+          name: myconfigmap
+        ports:
+        - containerPort: 8000
+

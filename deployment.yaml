@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-python-app
+  labels:
+    app: sample-python-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-python-app
+  template:
+    metadata:
+      labels:
+        app: sample-python-app
+    spec:
+      containers:
+      - name: python-app
+        image: shashank20062000/python-web-app:latest
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: secret
+          mountPath: /etc/secret
+          readOnly: true
+      volumes:
+      - name: secret
+        secret:
+          secretName: mysecret
+
