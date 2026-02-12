@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: shashank20062000/python-application:13
+        image: shashank20062000/python-application:14
         ports:
         - containerPort: 8000
         volumeMounts:
