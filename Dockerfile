@@ -1,21 +1,25 @@
-# Use official lightweight Python image
-FROM python:3.11-slim
+# Smallest commonly-used Python base
+FROM python:3.12-alpine
 
-# Set working directory
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
-# Copy requirements first (for caching)
-COPY requirements.txt .
+# (Optional but nice) add a non-root user for security
+RUN addgroup -S app && adduser -S app -G app
 
-# Install dependencies
+# Install deps
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy app code
-COPY app.py .
+# Copy code
+COPY . .
 
-# Expose port
+# Switch to non-root user
+USER app
+
 EXPOSE 8000
 
-# Run the application
-CMD ["python", "app.py"]
-
+# If your file is app.py and Flask object is app = Flask(__name__)
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app", "--workers", "2", "--threads", "4", "--timeout", "60"]
