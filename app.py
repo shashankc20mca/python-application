@@ -238,7 +238,7 @@ HTML_TEMPLATE = """
       <div class="brand">
         <div class="logo">⚙️</div>
         <div class="title">
-          <h1>DevOps Kubernetes Demo</h1>
+          <h1>DevOps Kubernetes Demo by shashank chandrashekar</h1>
           <p>Observability-ready UI • clean status • tech stack overview</p>
         </div>
       </div>
@@ -253,7 +253,7 @@ HTML_TEMPLATE = """
     <div class="hero">
       <div class="hero-inner">
         <div class="hero-left">
-          <h2>🚀 Running on Kubernetes</h2>
+          <h2>🚀 Running on Kubernetes by SHASHANK</h2>
           <p>
             This service is deployed as a containerized Flask app.
             It shows runtime metadata and highlights the DevOps stack used to build, ship, and operate workloads.
