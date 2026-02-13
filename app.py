@@ -290,7 +290,7 @@ HTML_TEMPLATE = """
 
     <div class="grid">
       <div class="panel">
-        <h3>📦 Runtime & Pod Details</h3>
+        <h3>📦 Runtime & Pod Details By shashank c</h3>
         <p>Useful for debugging deployments, scaling, and verifying which pod served the request.</p>
 
         <div class="kv" id="podInfo">
@@ -322,7 +322,7 @@ HTML_TEMPLATE = """
       </div>
 
       <div class="panel">
-        <h3>🛠️ DevOps Tech Stack</h3>
+        <h3>🛠️ DevOps Tech Stack By shashank c</h3>
         <p>A quick overview of the delivery pipeline and platform components.</p>
 
         <div class="pipeline">
